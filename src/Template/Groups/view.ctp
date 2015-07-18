@@ -10,14 +10,42 @@
 
     <div class="row">
         <div class="panel-body">
+            <?php if (count($items)): ?>
+                <table class="table table-striped">
+                    <?php if ($groupType == 'catering'): ?>
+                        <tr>
+                            <th>Name</th>
+                            <th>Quantity</th>
+                            <th>Details</th>
+                            <th>User</th>
+                        </tr>
+                    <?php else: ?>
+                        <tr>
+                            <th>Username</th>
+                        </tr>
+                    <?php endif;?>
 
-            <ul class="list-group">
-                <?= count($items) ? '' : 'No ' . ($groupType == 'catering' ? 'items ordered' : 'participants') ?>
+                    <?php foreach ($group[$groupType == 'catering' ? 'group_items' : 'participants'] as $item) : ?>
+                        <?php if ($groupType == 'catering'): ?>
+                            <tr>
+                                <td><?=$item['name']?></td>
+                                <td><?=$item['qty']?></td>
+                                <td><?=$item['details']?></td>
+                                <td><?=$users[$item['user_id']]['username']?></td>
+                            </tr>
+                        <?php else: ?>
+                            <tr>
+                                <td><?=$users[$item['user_id']]['username']?></td>
+                            </tr>
+                        <?php endif;?>
+                    <?php endforeach; ?>
+                </table>
 
-                <?php foreach ($group[$groupType == 'catering' ? 'group_items' : 'participants'] as $item) : ?>
-                    <li class="list-group-item"><?=$item['name']?></li>
-                <?php endforeach; ?>
-            </ul>
+            <?php else: ?>
+                <p>
+                    <?= 'No ' . ($groupType == 'catering' ? 'items ordered' : 'participants') . ', just yet :)' ?>
+                <?p>
+            <?php endif; ?>
 
             <div>
                 <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>

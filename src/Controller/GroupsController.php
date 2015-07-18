@@ -49,13 +49,24 @@ class GroupsController extends AppController
      */
     public function view($id = null)
     {
+        $users = [];
+
         $group = $this->Groups->get($id, [
             'contain' => ['Users', 'Locations', 'GroupItems', 'Participants']
         ]);
 
+        foreach ($group['participants'] as $key => $participant) {
+            $users[$participant->user_id] = $this->Groups->Users->get($participant->user_id);
+        }
+
+        foreach ($group['group_items'] as $key => $item) {
+            $users[$item->user_id] = $this->Groups->Users->get($item->user_id);
+        }
+
         $this->set('items', $group[$group['type'] == 'catering' ? 'group_items' : 'participants']);
         $this->set('group', $group);
         $this->set('groupType', $group->type);
+        $this->set('users', $users);
         $this->set('_serialize', ['group']);
     }
 

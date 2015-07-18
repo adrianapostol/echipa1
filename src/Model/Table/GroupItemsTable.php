@@ -58,6 +58,11 @@ class GroupItemsTable extends Table
             ->notEmpty('name');
             
         $validator
+            ->add('qty', 'valid', ['rule' => 'numeric'])
+            ->requirePresence('qty', 'create')
+            ->notEmpty('qty');
+            
+        $validator
             ->allowEmpty('url');
             
         $validator

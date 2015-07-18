@@ -19,6 +19,7 @@ class GroupItem extends Entity
         'user_id' => true,
         'item_id' => true,
         'name' => true,
+        'qty' => true,
         'url' => true,
         'details' => true,
         'group' => true,

@@ -6,6 +6,13 @@
             <?= $this->Form->input('username') ?>
             <?= $this->Form->input('password') ?>
         </fieldset>
+    <?php
+        echo $this->Html->link(
+            'Sign in',
+            '/users/add',
+            array('class' => 'button')
+        );
+     ?>
     <?= $this->Form->button(__('Login')); ?>
     <?= $this->Form->end() ?>
 </div>

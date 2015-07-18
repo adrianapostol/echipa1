@@ -10,6 +10,7 @@
         <legend><?= __('Add Order Item') ?></legend>
         <?php
             echo $this->Form->input('name');
+            echo $this->Form->input('qty');
             echo $this->Form->input('url');
             echo $this->Form->input('details');
         ?>
