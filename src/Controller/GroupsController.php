@@ -1,5 +1,4 @@
-<?php
-namespace App\Controller;
+<?php namespace App\Controller;
 
 use App\Controller\AppController;
 
@@ -21,8 +20,18 @@ class GroupsController extends AppController
         $this->paginate = [
             'contain' => ['Users', 'Locations']
         ];
-        $this->set('groups', $this->paginate($this->Groups));
-        $this->set('_serialize', ['groups']);
+        $lunchGroups = $this->Groups
+            ->find()
+            ->select(['id', 'name'])
+            ->where(['type =' => 'lunch']);
+        $cateringGroups = $this->Groups
+            ->find()
+            ->select(['id', 'name'])
+            ->where(['type =' => 'catering']);
+        
+        $this->set('lunchGroups', $lunchGroups);
+        $this->set('cateringGroups', $cateringGroups);
+        $this->set('_serialize', ['lunchGroups', 'cateringGroups']);
     }
 
     /**
