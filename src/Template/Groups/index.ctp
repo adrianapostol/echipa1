@@ -1,7 +1,7 @@
-
+<?php $this->assign('title', ' '); ?>
 <div class="panel panel-info">
   <div class="panel-heading">
-    Unde mancam azi?
+    Unde mancam azi ?
   </div>  
   <div class="panel-body">
     <ul class="list-group">
@@ -32,9 +32,9 @@
     </div>
   </div>
 </div>
-<div class="panel panel-default">
+<div class="panel panel-info">
   <div class="panel-heading">
-    De unde comandam azi?
+    De unde comandam azi ?
   </div>
   <div class="panel-body">
     <ul class="list-group">
@@ -50,6 +50,7 @@
                     <div class="col-md-4 gr-action">
                         <?php if ($group->user_id === $userId): ?>
                             <span class="glyphicon glyphicon-edit"></span> <?= $this->Html->link(__('Edit'), ['action' => 'edit', $group->id]); ?>
+                            <span class="glyphicon glyphicon-log-in"></span> <?= $this->Html->link(__('View'), ['action' => 'view', $group->id]); ?>  
                         <?php else: ?>
                            <span class="glyphicon glyphicon-log-in"></span> <?= $this->Html->link(__('View'), ['action' => 'view', $group->id]); ?>  
                         <?php endif; ?>
