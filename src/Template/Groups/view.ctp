@@ -23,6 +23,8 @@
             <p><?= $group->has('user') ? $this->Html->link($group->user->id, ['controller' => 'Users', 'action' => 'view', $group->user->id]) : '' ?></p>
             <h6 class="subheader"><?= __('Location') ?></h6>
             <p><?= $group->has('location') ? $this->Html->link($group->location->name, ['controller' => 'Locations', 'action' => 'view', $group->location->id]) : '' ?></p>
+            <h6 class="subheader"><?= __('Name') ?></h6>
+            <p><?= h($group->name) ?></p>
             <h6 class="subheader"><?= __('Type') ?></h6>
             <p><?= h($group->type) ?></p>
         </div>
@@ -35,10 +37,10 @@
             <p><?= $this->Number->format($group->ended) ?></p>
         </div>
         <div class="large-2 columns dates end">
-            <h6 class="subheader"><?= __('Created At') ?></h6>
-            <p><?= h($group->created_at) ?></p>
-            <h6 class="subheader"><?= __('Updated At') ?></h6>
-            <p><?= h($group->updated_at) ?></p>
+            <h6 class="subheader"><?= __('Created') ?></h6>
+            <p><?= h($group->created) ?></p>
+            <h6 class="subheader"><?= __('Modified') ?></h6>
+            <p><?= h($group->modified) ?></p>
             <h6 class="subheader"><?= __('Due Date') ?></h6>
             <p><?= h($group->due_date) ?></p>
         </div>

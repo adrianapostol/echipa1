@@ -19,10 +19,10 @@
             <th><?= $this->Paginator->sort('id') ?></th>
             <th><?= $this->Paginator->sort('user_id') ?></th>
             <th><?= $this->Paginator->sort('location_id') ?></th>
-            <th><?= $this->Paginator->sort('created_at') ?></th>
-            <th><?= $this->Paginator->sort('updated_at') ?></th>
+            <th><?= $this->Paginator->sort('name') ?></th>
+            <th><?= $this->Paginator->sort('created') ?></th>
+            <th><?= $this->Paginator->sort('modified') ?></th>
             <th><?= $this->Paginator->sort('due_date') ?></th>
-            <th><?= $this->Paginator->sort('type') ?></th>
             <th class="actions"><?= __('Actions') ?></th>
         </tr>
     </thead>
@@ -36,10 +36,10 @@
             <td>
                 <?= $group->has('location') ? $this->Html->link($group->location->name, ['controller' => 'Locations', 'action' => 'view', $group->location->id]) : '' ?>
             </td>
-            <td><?= h($group->created_at) ?></td>
-            <td><?= h($group->updated_at) ?></td>
+            <td><?= h($group->name) ?></td>
+            <td><?= h($group->created) ?></td>
+            <td><?= h($group->modified) ?></td>
             <td><?= h($group->due_date) ?></td>
-            <td><?= h($group->type) ?></td>
             <td class="actions">
                 <?= $this->Html->link(__('View'), ['action' => 'view', $group->id]) ?>
                 <?= $this->Html->link(__('Edit'), ['action' => 'edit', $group->id]) ?>

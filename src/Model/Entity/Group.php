@@ -17,8 +17,7 @@ class Group extends Entity
     protected $_accessible = [
         'user_id' => true,
         'location_id' => true,
-        'created_at' => true,
-        'updated_at' => true,
+        'name' => true,
         'due_date' => true,
         'type' => true,
         'started' => true,

@@ -49,8 +49,7 @@ class ItemsTable extends Table
             ->notEmpty('name');
             
         $validator
-            ->requirePresence('url', 'create')
-            ->notEmpty('url');
+            ->allowEmpty('url');
 
         return $validator;
     }

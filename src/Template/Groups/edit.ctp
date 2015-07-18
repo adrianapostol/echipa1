@@ -24,9 +24,8 @@
         <legend><?= __('Edit Group') ?></legend>
         <?php
             echo $this->Form->input('user_id', ['options' => $users]);
-            echo $this->Form->input('location_id', ['options' => $locations]);
-            echo $this->Form->input('created_at');
-            echo $this->Form->input('updated_at');
+            echo $this->Form->input('location_id', ['options' => $locations, 'empty' => true]);
+            echo $this->Form->input('name');
             echo $this->Form->input('due_date');
             echo $this->Form->input('type');
             echo $this->Form->input('started');

@@ -28,6 +28,7 @@ class UsersTable extends Table
         $this->table('users');
         $this->displayField('id');
         $this->primaryKey('id');
+        $this->addBehavior('Timestamp');
         $this->hasMany('GroupItems', [
             'foreignKey' => 'user_id'
         ]);
@@ -52,13 +53,10 @@ class UsersTable extends Table
             ->allowEmpty('id', 'create');
             
         $validator
-            ->add('email', 'valid', ['rule' => 'email'])
-            ->requirePresence('email', 'create')
-            ->notEmpty('email');
+            ->allowEmpty('username');
             
         $validator
-            ->requirePresence('password', 'create')
-            ->notEmpty('password');
+            ->allowEmpty('password');
 
         return $validator;
     }
@@ -72,7 +70,7 @@ class UsersTable extends Table
      */
     public function buildRules(RulesChecker $rules)
     {
-        $rules->add($rules->isUnique(['email']));
+        $rules->add($rules->isUnique(['username']));
         return $rules;
     }
 }

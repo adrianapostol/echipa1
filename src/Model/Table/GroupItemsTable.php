@@ -37,8 +37,7 @@ class GroupItemsTable extends Table
             'joinType' => 'INNER'
         ]);
         $this->belongsTo('Items', [
-            'foreignKey' => 'item_id',
-            'joinType' => 'INNER'
+            'foreignKey' => 'item_id'
         ]);
     }
 
@@ -59,12 +58,10 @@ class GroupItemsTable extends Table
             ->notEmpty('name');
             
         $validator
-            ->requirePresence('url', 'create')
-            ->notEmpty('url');
+            ->allowEmpty('url');
             
         $validator
-            ->requirePresence('details', 'create')
-            ->notEmpty('details');
+            ->allowEmpty('details');
 
         return $validator;
     }

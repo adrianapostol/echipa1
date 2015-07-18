@@ -1,3 +1,7 @@
+DROP DATABASE lunch_app;
+CREATE DATABASE lunch_app;
+USE lunch_app;
+
 -- phpMyAdmin SQL Dump
 -- version 4.3.11
 -- http://www.phpmyadmin.net
@@ -44,8 +48,8 @@ CREATE TABLE IF NOT EXISTS `groups` (
   `user_id` int(11) NOT NULL,
   `location_id` int(11),
   `name` varchar(255) NOT NULL,
-  `created_at` datetime,
-  `updated_at` datetime,
+  `created` datetime DEFAULT NULL,
+  `modified` datetime DEFAULT NULL,
   `due_date` datetime,
   `type` varchar(255) NOT NULL,
   `started` tinyint(4),
@@ -98,10 +102,12 @@ CREATE TABLE IF NOT EXISTS `participants` (
 -- Table structure for table `users`
 --
 
-CREATE TABLE IF NOT EXISTS `users` (
-  `id` int(11) NOT NULL,
-  `email` varchar(255) NOT NULL,
-  `password` varchar(255) NOT NULL
+CREATE TABLE `users` (
+    `id` INT UNSIGNED,
+    `username` VARCHAR(50),
+    `password` VARCHAR(255),
+    `created` DATETIME DEFAULT NULL,
+    `modified` DATETIME DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --

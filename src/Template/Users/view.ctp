@@ -17,14 +17,20 @@
     <h2><?= h($user->id) ?></h2>
     <div class="row">
         <div class="large-5 columns strings">
-            <h6 class="subheader"><?= __('Email') ?></h6>
-            <p><?= h($user->email) ?></p>
+            <h6 class="subheader"><?= __('Username') ?></h6>
+            <p><?= h($user->username) ?></p>
             <h6 class="subheader"><?= __('Password') ?></h6>
             <p><?= h($user->password) ?></p>
         </div>
         <div class="large-2 columns numbers end">
             <h6 class="subheader"><?= __('Id') ?></h6>
             <p><?= $this->Number->format($user->id) ?></p>
+        </div>
+        <div class="large-2 columns dates end">
+            <h6 class="subheader"><?= __('Created') ?></h6>
+            <p><?= h($user->created) ?></p>
+            <h6 class="subheader"><?= __('Modified') ?></h6>
+            <p><?= h($user->modified) ?></p>
         </div>
     </div>
 </div>
@@ -77,8 +83,9 @@
             <th><?= __('Id') ?></th>
             <th><?= __('User Id') ?></th>
             <th><?= __('Location Id') ?></th>
-            <th><?= __('Created At') ?></th>
-            <th><?= __('Updated At') ?></th>
+            <th><?= __('Name') ?></th>
+            <th><?= __('Created') ?></th>
+            <th><?= __('Modified') ?></th>
             <th><?= __('Due Date') ?></th>
             <th><?= __('Type') ?></th>
             <th><?= __('Started') ?></th>
@@ -90,8 +97,9 @@
             <td><?= h($groups->id) ?></td>
             <td><?= h($groups->user_id) ?></td>
             <td><?= h($groups->location_id) ?></td>
-            <td><?= h($groups->created_at) ?></td>
-            <td><?= h($groups->updated_at) ?></td>
+            <td><?= h($groups->name) ?></td>
+            <td><?= h($groups->created) ?></td>
+            <td><?= h($groups->modified) ?></td>
             <td><?= h($groups->due_date) ?></td>
             <td><?= h($groups->type) ?></td>
             <td><?= h($groups->started) ?></td>

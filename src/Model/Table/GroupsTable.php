@@ -29,13 +29,13 @@ class GroupsTable extends Table
         $this->table('groups');
         $this->displayField('id');
         $this->primaryKey('id');
+        $this->addBehavior('Timestamp');
         $this->belongsTo('Users', [
             'foreignKey' => 'user_id',
             'joinType' => 'INNER'
         ]);
         $this->belongsTo('Locations', [
-            'foreignKey' => 'location_id',
-            'joinType' => 'INNER'
+            'foreignKey' => 'location_id'
         ]);
         $this->hasMany('GroupItems', [
             'foreignKey' => 'group_id'
@@ -58,19 +58,12 @@ class GroupsTable extends Table
             ->allowEmpty('id', 'create');
             
         $validator
-            ->add('created_at', 'valid', ['rule' => 'datetime'])
-            ->requirePresence('created_at', 'create')
-            ->notEmpty('created_at');
-            
-        $validator
-            ->add('updated_at', 'valid', ['rule' => 'datetime'])
-            ->requirePresence('updated_at', 'create')
-            ->notEmpty('updated_at');
+            ->requirePresence('name', 'create')
+            ->notEmpty('name');
             
         $validator
             ->add('due_date', 'valid', ['rule' => 'datetime'])
-            ->requirePresence('due_date', 'create')
-            ->notEmpty('due_date');
+            ->allowEmpty('due_date');
             
         $validator
             ->requirePresence('type', 'create')
@@ -78,13 +71,11 @@ class GroupsTable extends Table
             
         $validator
             ->add('started', 'valid', ['rule' => 'numeric'])
-            ->requirePresence('started', 'create')
-            ->notEmpty('started');
+            ->allowEmpty('started');
             
         $validator
             ->add('ended', 'valid', ['rule' => 'numeric'])
-            ->requirePresence('ended', 'create')
-            ->notEmpty('ended');
+            ->allowEmpty('ended');
 
         return $validator;
     }

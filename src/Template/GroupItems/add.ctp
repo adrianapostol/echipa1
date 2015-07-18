@@ -17,7 +17,7 @@
         <?php
             echo $this->Form->input('group_id', ['options' => $groups]);
             echo $this->Form->input('user_id', ['options' => $users]);
-            echo $this->Form->input('item_id', ['options' => $items]);
+            echo $this->Form->input('item_id', ['options' => $items, 'empty' => true]);
             echo $this->Form->input('name');
             echo $this->Form->input('url');
             echo $this->Form->input('details');

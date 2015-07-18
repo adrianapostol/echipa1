@@ -39,8 +39,9 @@
             <th><?= __('Id') ?></th>
             <th><?= __('User Id') ?></th>
             <th><?= __('Location Id') ?></th>
-            <th><?= __('Created At') ?></th>
-            <th><?= __('Updated At') ?></th>
+            <th><?= __('Name') ?></th>
+            <th><?= __('Created') ?></th>
+            <th><?= __('Modified') ?></th>
             <th><?= __('Due Date') ?></th>
             <th><?= __('Type') ?></th>
             <th><?= __('Started') ?></th>
@@ -52,8 +53,9 @@
             <td><?= h($groups->id) ?></td>
             <td><?= h($groups->user_id) ?></td>
             <td><?= h($groups->location_id) ?></td>
-            <td><?= h($groups->created_at) ?></td>
-            <td><?= h($groups->updated_at) ?></td>
+            <td><?= h($groups->name) ?></td>
+            <td><?= h($groups->created) ?></td>
+            <td><?= h($groups->modified) ?></td>
             <td><?= h($groups->due_date) ?></td>
             <td><?= h($groups->type) ?></td>
             <td><?= h($groups->started) ?></td>
