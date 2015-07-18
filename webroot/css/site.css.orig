@@ -11,9 +11,15 @@ and open the template in the editor.
     float: left;
     width: 100%;    
 }
+<<<<<<< HEAD
 .list-group .gr-action {
     text-align: right;
 }
+=======
+
+
+
 .user-actions {
     float: right;
 }
+>>>>>>> 5888a55e13f9c86af8d697acbe95f94f1dce5dda
