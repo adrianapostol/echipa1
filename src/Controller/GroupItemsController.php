@@ -84,7 +84,7 @@ class GroupItemsController extends AppController
             $groupItem = $this->GroupItems->patchEntity($groupItem, $this->request->data);
             if ($this->GroupItems->save($groupItem)) {
                 $this->Flash->success(__('The group item has been saved.'));
-                return $this->redirect(['action' => 'index']);
+                return $this->redirect(['controller' => 'groups', 'action' => 'view', $groupItem['group_id']]);
             } else {
                 $this->Flash->error(__('The group item could not be saved. Please, try again.'));
             }
@@ -105,13 +105,19 @@ class GroupItemsController extends AppController
      */
     public function delete($id = null)
     {
-        $this->request->allowMethod(['post', 'delete']);
+        $this->request->allowMethod(['post', 'get', 'delete']);
         $groupItem = $this->GroupItems->get($id);
-        if ($this->GroupItems->delete($groupItem)) {
-            $this->Flash->success(__('The group item has been deleted.'));
+
+        if ($this->Auth->user('id') !== $groupItem['user_id']) {
+            $this->Flash->error(__('Be nice! Not your item'));
         } else {
-            $this->Flash->error(__('The group item could not be deleted. Please, try again.'));
+            if ($this->GroupItems->delete($groupItem)) {
+                $this->Flash->success(__('The group item has been deleted.'));
+            } else {
+                $this->Flash->error(__('The group item could not be deleted. Please, try again.'));
+            }
         }
-        return $this->redirect(['action' => 'index']);
+
+        return $this->redirect(['controller' => 'groups', 'action' => 'view', $groupItem['group_id']]);
     }
 }

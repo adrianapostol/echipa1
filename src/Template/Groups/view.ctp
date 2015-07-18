@@ -23,6 +23,7 @@
                     <?php else: ?>
                         <tr>
                             <th>Username</th>
+                            <th>Actions</th>
                         </tr>
                     <?php endif;?>
 
@@ -34,13 +35,20 @@
                                 <td><?=$item['details']?></td>
                                 <td><?=$users[$item['user_id']]['username']?></td>
                                 <td>
-                                    <span class="glyphicon glyphicon-edit"></span> <?= $this->Html->link(__('Edit'), ['controller' => 'group_item', 'action' => 'edit', $item['id']]); ?>
-                                    <span class="glyphicon glyphicon-trash"></span> <?= $this->Html->link(__('Delete'), ['controller' => 'group_item', 'action' => 'delete', $item['id']]); ?>
+                                    <span class="glyphicon glyphicon-edit"></span> <?= $this->Html->link(__('Edit'), ['controller' => 'group_items', 'action' => 'edit', $item['id']]); ?>
+                                    <span class="glyphicon glyphicon-trash"></span> <?= $this->Html->link(__('Delete'), ['controller' => 'group_items', 'action' => 'delete', $item['id']]); ?>
                                 </td>
                             </tr>
                         <?php else: ?>
                             <tr>
-                                <td><?=$users[$item['user_id']]['username']?></td>
+                                <td>
+                                    <?=$users[$item['user_id']]['username']?>
+                                </td>
+                                <td>
+                                    <?php if ($item['user_id'] == $currentUser['id']): ?>
+                                        <span class="glyphicon glyphicon-trash"></span> <?= $this->Html->link(__('Not going anymore'), ['controller' => 'participants', 'action' => 'delete', $item['id']]); ?>
+                                    <?php endif; ?>
+                                </td>
                             </tr>
                         <?php endif;?>
                     <?php endforeach; ?>

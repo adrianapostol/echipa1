@@ -124,13 +124,19 @@ class ParticipantsController extends AppController
      */
     public function delete($id = null)
     {
-        $this->request->allowMethod(['post', 'delete']);
+        $this->request->allowMethod(['post', 'get', 'delete']);
         $participant = $this->Participants->get($id);
-        if ($this->Participants->delete($participant)) {
-            $this->Flash->success(__('The participant has been deleted.'));
+
+        if ($this->Auth->user('id') !== $participant['user_id']) {
+            $this->Flash->error(__('Be nice! Not your item'));
         } else {
-            $this->Flash->error(__('The participant could not be deleted. Please, try again.'));
+            if ($this->Participants->delete($participant)) {
+                $this->Flash->success(__('The participant has been deleted.'));
+            } else {
+                $this->Flash->error(__('The participant could not be deleted. Please, try again.'));
+            }
         }
-        return $this->redirect(['action' => 'index']);
+
+        return $this->redirect(['controller' => 'groups', 'action' => 'view', $participant['group_id']]);
     }
 }
