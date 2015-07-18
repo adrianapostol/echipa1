@@ -65,6 +65,8 @@ class GroupsController extends AppController
             $users[$item->user_id] = $this->Groups->Users->get($item->user_id);
         }
 
+        $users[$group['user_id']] = $this->Groups->Users->get($group['user_id']);
+
         $this->set('items', $group[$group['type'] == 'catering' ? 'group_items' : 'participants']);
         $this->set('group', $group);
         $this->set('groupType', $group->type);

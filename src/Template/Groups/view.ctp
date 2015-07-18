@@ -7,7 +7,7 @@
 <div class="groups view large-10 medium-9 columns">
     <h2><?= h($group->name) ?></h2>
     <h3> <?= $group['type'] == 'catering' ? 'Order List' : 'Participants' ?> </h3>
-
+    <p><?= __('Initiated by ') ?> <b> <?= $users[$group['user_id']]['username'] ?> </b> </p>
     <div class="row">
         <div class="panel-body">
             <?php if (count($items)): ?>
