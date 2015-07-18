@@ -1,7 +1,7 @@
 <?php $this->assign('title', ' '); ?>
 <div class="panel panel-info">
   <div class="panel-heading">
-    Unde mancam azi?
+    Unde mancam azi ?
   </div>  
   <div class="panel-body">
     <ul class="list-group">
@@ -32,9 +32,9 @@
     </div>
   </div>
 </div>
-<div class="panel panel-default">
+<div class="panel panel-info">
   <div class="panel-heading">
-    De unde comandam azi?
+    De unde comandam azi ?
   </div>
   <div class="panel-body">
     <ul class="list-group">

@@ -24,6 +24,7 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
         <?= $cakeDescription ?>:
         <?= $this->fetch('title') ?>
     </title>
+    <link href='http://fonts.googleapis.com/css?family=Magra' rel='stylesheet' type='text/css'>
     <?= $this->Html->meta('icon') ?>
     <?= $this->Html->css('bootstrap/css/bootstrap.min') ?>
     <?= $this->Html->css('base.css') ?>
@@ -40,25 +41,25 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
 <body>
     <header>
         <div class="header-title">
-            <span>LunchApp</span>
+            <?=  $this->Html->image('logo.jpg', array('alt' => 'lunch logo')); ?>
+            <div class="header-helper">
+                <span> Logged in as <?= $currentUser['username'] ?> </span>
+                <span>|</span>
+                <span>
+                    <?php
+                        echo $this->Html->link(
+                            'Logout',
+                            '/users/logout',
+                            array('class' => '')
+                        );
+                     ?>
+                </span>
+            </div>            
         </div>
         <div class="header-title">
             <span style="color: black"><?= $this->fetch('title') ?></span>
         </div>
-        <div class="header-help">
-            <span style="color: black"> Logged in as <?= $currentUser['username'] ?> </span>
-            <span>
-                <?php
-                    echo $this->Html->link(
-                        'Logout',
-                        '/users/logout',
-                        array('class' => '')
-                    );
-                 ?>
-            </span>
-            <!--<span><a target="_blank" href="http://book.cakephp.org/3.0/">Documentation</a></span>
-            <span><a target="_blank" href="http://api.cakephp.org/3.0/">API</a></span>-->
-        </div>
+
     </header>
     <div id="container">
 
@@ -69,6 +70,7 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
             </div>
         </div>
         <footer>
+            © Copyright Softvision  - Hackathon Iasi 2015
         </footer>
     </div>
 </body>
