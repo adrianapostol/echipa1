@@ -43,17 +43,19 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
         <div class="header-title">
             <a href="<?php echo $this->Url->build('/groups', true); ?>"><?=  $this->Html->image('logo.jpg', array('alt' => 'lunch logo')); ?></a>
             <div class="header-helper">
-                <span> Hello, <?= $currentUser['username'] ?>! </span>
-                <span>|</span>
-                <span>
-                    <?php
-                        echo $this->Html->link(
-                            'Logout',
-                            '/users/logout',
-                            array('class' => '')
-                        );
-                     ?>
-                </span>
+                <?php if(!empty($currentUser)): ?>
+                    <span> Hello, <?= $currentUser['username'] ?>! </span>
+                    <span>|</span>
+                    <span>
+                        <?php
+                            echo $this->Html->link(
+                                'Logout',
+                                '/users/logout',
+                                array('class' => '')
+                            );
+                         ?>
+                    </span>
+                <?php endif;?>
             </div>            
         </div>
         <div class="header-title">
