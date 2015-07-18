@@ -182,7 +182,7 @@ Request::addDetector('tablet', function ($request) {
 
 Plugin::load('Migrations');
 
-Plugin::load('BootstrapUI');
+//Plugin::load('BootstrapUI');
 
 
 
