@@ -12,6 +12,12 @@
                         <div><h4><?= $group->name;?></h3></div>
                         <div>
                             <span class="glyphicon glyphicon-time"></span><?= date('H:i', strtotime($group->due_date));?>
+                            <span> - <b>Status:</b></span>
+                            <?php $status = empty($group->started) ? 'Pending' : 'Am plecat';?> 
+                            <?php $class = empty($group->started) ? 'pending' : 'out';?> 
+                            <span class = "<?= $class;?>">
+                                <?= $status;?>
+                            </span>
                         </div>                        
                     </div>
                     <div class="col-md-4 gr-action">
@@ -45,6 +51,12 @@
                         <div><h4><?= $group->name;?></h3></div>
                         <div>
                             <span class="glyphicon glyphicon-time"></span><?= date('H:i', strtotime($group->due_date));?>
+                            <span> - <b>Status:</b></span>
+                            <?php $status = empty($group->started) ? 'Pending' : 'Am Comandat';?> 
+                            <?php $class = empty($group->started) ? 'pending' : 'out';?> 
+                            <span class = "<?= $class;?>">
+                                <?= $status;?>
+                            </span>
                         </div>                        
                     </div>
                     <div class="col-md-4 gr-action">

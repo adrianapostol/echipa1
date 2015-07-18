@@ -52,3 +52,9 @@ footer {
     font-size: 24px;
     font-family: Magra;
 }
+.gr-name .out {
+    color: #cc6600;
+}
+.gr-name .pending {
+    color: #339900;
+}

@@ -26,13 +26,15 @@ class GroupsController extends AppController
         ];
         $lunchGroups = $this->Groups
             ->find()
-            ->select(['id', 'name', 'due_date', 'user_id'])
-            ->where(['type =' => 'lunch', 'ended IS' => NULL, 'due_date >' => $today->format('Y-m-d')]);
+            ->select(['id', 'user_id', 'name', 'due_date', 'started'])
+            ->where(['type =' => 'lunch', 'ended IS' => NULL, 'due_date >' => $today->format('Y-m-d')])
+            ->order(['due_date' => 'ASC']);
 
         $cateringGroups = $this->Groups
             ->find()
-            ->select(['id', 'name', 'due_date', 'user_id'])
-            ->where(['type =' => 'catering', 'ended IS' => NULL, 'due_date >' => $today->format('Y-m-d')]);
+            ->select(['id', 'user_id', 'name', 'due_date', 'started'])
+            ->where(['type =' => 'catering', 'ended IS' => NULL, 'due_date >' => $today->format('Y-m-d')])
+            ->order(['due_date' => 'ASC']);
 
         $this->set('lunchGroups', $lunchGroups);
         $this->set('cateringGroups', $cateringGroups);
