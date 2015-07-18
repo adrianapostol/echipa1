@@ -1,4 +1,4 @@
-
+<?php $this->assign('title', ' '); ?>
 <div class="panel panel-info">
   <div class="panel-heading">
     Unde mancam azi?
