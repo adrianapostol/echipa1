@@ -41,7 +41,7 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
 <body>
     <header>
         <div class="header-title">
-            <?=  $this->Html->image('logo.jpg', array('alt' => 'lunch logo')); ?>
+            <a href="<?php echo $this->Url->build('/groups', true); ?>"><?=  $this->Html->image('logo.jpg', array('alt' => 'lunch logo')); ?></a>
             <div class="header-helper">
                 <span> Logged in as <?= $currentUser['username'] ?> </span>
                 <span>|</span>
