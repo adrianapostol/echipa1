@@ -17,3 +17,6 @@ and open the template in the editor.
 .user-actions {
     float: right;
 }
+.gr-action span {
+    margin-left: 7px;
+}
