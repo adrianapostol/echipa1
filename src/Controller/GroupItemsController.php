@@ -42,15 +42,17 @@ class GroupItemsController extends AppController
     }
 
     /**
-     * Add method
-     *
-     * @return void Redirects on successful add, renders view otherwise.
+     * @param null $groupId
+     * @return \Cake\Network\Response|void
      */
-    public function add()
+    public function add($groupId = null)
     {
         $groupItem = $this->GroupItems->newEntity();
+
         if ($this->request->is('post')) {
             $groupItem = $this->GroupItems->patchEntity($groupItem, $this->request->data);
+            $groupItem->group_id = $groupId;
+
             if ($this->GroupItems->save($groupItem)) {
                 $this->Flash->success(__('The group item has been saved.'));
                 return $this->redirect(['action' => 'index']);

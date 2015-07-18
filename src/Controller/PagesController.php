@@ -37,6 +37,8 @@ class PagesController extends AppController
      */
     public function display()
     {
+        return $this->redirect('/groups');
+
         $path = func_get_args();
 
         $count = count($path);
