@@ -30,7 +30,7 @@ CREATE TABLE IF NOT EXISTS `items` (
   `id` int(11) NOT NULL,
   `location_id` int(11) NOT NULL,
   `name` varchar(255) NOT NULL,
-  `url` text NOT NULL
+  `url` text
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -42,13 +42,14 @@ CREATE TABLE IF NOT EXISTS `items` (
 CREATE TABLE IF NOT EXISTS `groups` (
   `id` int(11) NOT NULL,
   `user_id` int(11) NOT NULL,
-  `location_id` int(11) NOT NULL,
-  `created_at` datetime NOT NULL,
-  `updated_at` datetime NOT NULL,
-  `due_date` datetime NOT NULL,
+  `location_id` int(11),
+  `name` varchar(255) NOT NULL,
+  `created_at` datetime,
+  `updated_at` datetime,
+  `due_date` datetime,
   `type` varchar(255) NOT NULL,
-  `started` tinyint(4) NOT NULL,
-  `ended` tinyint(4) NOT NULL
+  `started` tinyint(4),
+  `ended` tinyint(4)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -61,10 +62,10 @@ CREATE TABLE IF NOT EXISTS `group_items` (
   `id` int(11) NOT NULL,
   `group_id` int(11) NOT NULL,
   `user_id` int(11) NOT NULL,
-  `item_id` int(11) NOT NULL,
+  `item_id` int(11),
   `name` varchar(255) NOT NULL,
-  `url` text NOT NULL,
-  `details` text NOT NULL
+  `url` text,
+  `details` text
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -76,7 +77,7 @@ CREATE TABLE IF NOT EXISTS `group_items` (
 CREATE TABLE IF NOT EXISTS `locations` (
   `id` int(11) NOT NULL,
   `name` varchar(255) NOT NULL,
-  `url` text NOT NULL
+  `url` text
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
