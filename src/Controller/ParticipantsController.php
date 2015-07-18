@@ -44,11 +44,35 @@ class ParticipantsController extends AppController
     /**
      * Add method
      *
-     * @return void Redirects on successful add, renders view otherwise.
+     * @param null $groupId
+     * @return \Cake\Network\Response|void
      */
-    public function add()
+    public function add($groupId = null)
     {
+        $existing = $this->Participants->find('all', [
+                'conditions' => [
+                    'Participants.user_id' => $this->Auth->user('id'),
+                    'Participants.group_id' => $groupId
+                ]
+            ]
+        );
+
+        $existing = $existing->toArray();
+
         $participant = $this->Participants->newEntity();
+        $participant->user_id = $this->Auth->user('id');
+        $participant->group_id = $groupId;
+
+        if (count($existing)) {
+            $this->Flash->success(__('Already joined'));
+        } else if ($this->Participants->save($participant)) {
+            $this->Flash->success(__('The participant has been saved.'));
+        } else {
+            $this->Flash->error(__('The participant could not be saved. Please, try again.'));
+        }
+
+        return $this->redirect(['controller' => 'groups', 'action' => 'view', $groupId]);
+
         if ($this->request->is('post')) {
             $participant = $this->Participants->patchEntity($participant, $this->request->data);
             if ($this->Participants->save($participant)) {

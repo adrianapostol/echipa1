@@ -68,6 +68,7 @@ CREATE TABLE IF NOT EXISTS `group_items` (
   `user_id` int(11) NOT NULL,
   `item_id` int(11),
   `name` varchar(255) NOT NULL,
+  `qty` int(11),
   `url` text,
   `details` text
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
