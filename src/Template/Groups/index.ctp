@@ -13,7 +13,7 @@
     </ul>
     <div>
         <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> 
-        <?= $this->Html->link(__('Add new'), ['action' => 'addCatering']) ?>
+        <?= $this->Html->link(__('Add new'), ['action' => 'addLunch']) ?>
     </div>
   </div>
 </div>
@@ -29,7 +29,7 @@
     </ul>
     <div>
         <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
-        <?= $this->Html->link(__('Add new'), ['action' => 'addLunch']) ?>
+        <?= $this->Html->link(__('Add new'), ['action' => 'addCatering']) ?>
     </div>
   </div>
 </div>
