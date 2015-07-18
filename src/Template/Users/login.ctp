@@ -1,5 +1,6 @@
+<?php $this->assign('title', ' '); ?>
 <div class="users form">
-    <?= $this->Flash->render('auth') ?>
+    <?= $this->Flash->render('') ?>
     <?= $this->Form->create() ?>
         <fieldset>
             <legend><?= __('Please enter your username and password') ?></legend>

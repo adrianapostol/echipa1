@@ -58,3 +58,6 @@ footer {
 .gr-name .pending {
     color: #339900;
 }
+.groupItems #url {
+      height: 10px;
+}
