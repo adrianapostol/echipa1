@@ -1,4 +1,6 @@
-<?php namespace App\Controller;
+<?php 
+
+namespace App\Controller;
 
 use App\Controller\AppController;
 
@@ -18,20 +20,20 @@ class GroupsController extends AppController
     public function index()
     {
         $userId = $this->Auth->user('id');
-        
+        $today = (new \DateTime())->setTime(0, 0);
         $this->paginate = [
             'contain' => ['Users', 'Locations']
         ];
         $lunchGroups = $this->Groups
             ->find()
             ->select(['id', 'name', 'due_date', 'user_id'])
-            ->where(['type =' => 'lunch']);
-        
+            ->where(['type =' => 'lunch', 'ended IS' => NULL, 'due_date >' => $today->format('Y-m-d')]);
+
         $cateringGroups = $this->Groups
             ->find()
             ->select(['id', 'name', 'due_date', 'user_id'])
-            ->where(['type =' => 'catering']);
-        
+            ->where(['type =' => 'catering', 'ended IS' => NULL, 'due_date >' => $today->format('Y-m-d')]);
+
         $this->set('lunchGroups', $lunchGroups);
         $this->set('cateringGroups', $cateringGroups);
         $this->set('userId', $userId);
