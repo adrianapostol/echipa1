@@ -17,21 +17,25 @@ class GroupsController extends AppController
      */
     public function index()
     {
+        $userId = $this->Auth->user('id');
+        
         $this->paginate = [
             'contain' => ['Users', 'Locations']
         ];
         $lunchGroups = $this->Groups
             ->find()
-            ->select(['id', 'name'])
+            ->select(['id', 'name', 'due_date', 'user_id'])
             ->where(['type =' => 'lunch']);
+        
         $cateringGroups = $this->Groups
             ->find()
-            ->select(['id', 'name'])
+            ->select(['id', 'name', 'due_date', 'user_id'])
             ->where(['type =' => 'catering']);
         
         $this->set('lunchGroups', $lunchGroups);
         $this->set('cateringGroups', $cateringGroups);
-        $this->set('_serialize', ['lunchGroups', 'cateringGroups']);
+        $this->set('userId', $userId);
+        $this->set('_serialize', ['lunchGroups', 'cateringGroups', 'userId']);
     }
 
     /**
