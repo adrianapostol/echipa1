@@ -7,13 +7,15 @@
             <?= $this->Form->input('username') ?>
             <?= $this->Form->input('password') ?>
         </fieldset>
+
+    <?= $this->Form->button(__('Login'), ['class' => 'left']); ?>
+
     <?php
         echo $this->Html->link(
             'Sign in',
             '/users/add',
-            array('class' => 'button')
+            array('class' => 'button right')
         );
      ?>
-    <?= $this->Form->button(__('Login')); ?>
     <?= $this->Form->end() ?>
 </div>
