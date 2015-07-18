@@ -49,11 +49,23 @@ class ParticipantsController extends AppController
      */
     public function add($groupId = null)
     {
+        $existing = $this->Participants->find('all', [
+                'conditions' => [
+                    'Participants.user_id' => $this->Auth->user('id'),
+                    'Participants.group_id' => $groupId
+                ]
+            ]
+        );
+
+        $existing = $existing->toArray();
+
         $participant = $this->Participants->newEntity();
         $participant->user_id = $this->Auth->user('id');
         $participant->group_id = $groupId;
 
-        if ($this->Participants->save($participant)) {
+        if (count($existing)) {
+            $this->Flash->success(__('Already joined'));
+        } else if ($this->Participants->save($participant)) {
             $this->Flash->success(__('The participant has been saved.'));
         } else {
             $this->Flash->error(__('The participant could not be saved. Please, try again.'));
