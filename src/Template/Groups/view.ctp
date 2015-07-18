@@ -14,10 +14,11 @@
                 <table class="table table-striped">
                     <?php if ($groupType == 'catering'): ?>
                         <tr>
-                            <th>Name</th>
+                            <th>Product Name</th>
                             <th>Quantity</th>
                             <th>Details</th>
                             <th>User</th>
+                            <th>Actions</th>
                         </tr>
                     <?php else: ?>
                         <tr>
@@ -32,6 +33,10 @@
                                 <td><?=$item['qty']?></td>
                                 <td><?=$item['details']?></td>
                                 <td><?=$users[$item['user_id']]['username']?></td>
+                                <td>
+                                    <span class="glyphicon glyphicon-edit"></span> <?= $this->Html->link(__('Edit'), ['controller' => 'group_item', 'action' => 'edit', $item['id']]); ?>
+                                    <span class="glyphicon glyphicon-trash"></span> <?= $this->Html->link(__('Delete'), ['controller' => 'group_item', 'action' => 'delete', $item['id']]); ?>
+                                </td>
                             </tr>
                         <?php else: ?>
                             <tr>
