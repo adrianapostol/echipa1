@@ -50,6 +50,7 @@
                     <div class="col-md-4 gr-action">
                         <?php if ($group->user_id === $userId): ?>
                             <span class="glyphicon glyphicon-edit"></span> <?= $this->Html->link(__('Edit'), ['action' => 'edit', $group->id]); ?>
+                            <span class="glyphicon glyphicon-log-in"></span> <?= $this->Html->link(__('View'), ['action' => 'view', $group->id]); ?>  
                         <?php else: ?>
                            <span class="glyphicon glyphicon-log-in"></span> <?= $this->Html->link(__('View'), ['action' => 'view', $group->id]); ?>  
                         <?php endif; ?>
