@@ -52,10 +52,11 @@ class GroupItemsController extends AppController
         if ($this->request->is('post')) {
             $groupItem = $this->GroupItems->patchEntity($groupItem, $this->request->data);
             $groupItem->group_id = $groupId;
+            $groupItem->user_id = $this->Auth->user('id');
 
             if ($this->GroupItems->save($groupItem)) {
                 $this->Flash->success(__('The group item has been saved.'));
-                return $this->redirect(['action' => 'index']);
+                return $this->redirect(['controller' => 'groups', 'action' => 'view', $groupId]);
             } else {
                 $this->Flash->error(__('The group item could not be saved. Please, try again.'));
             }

@@ -53,7 +53,9 @@ class GroupsController extends AppController
             'contain' => ['Users', 'Locations', 'GroupItems', 'Participants']
         ]);
 
+        $this->set('items', $group[$group['type'] == 'catering' ? 'group_items' : 'participants']);
         $this->set('group', $group);
+        $this->set('groupType', $group->type);
         $this->set('_serialize', ['group']);
     }
 
