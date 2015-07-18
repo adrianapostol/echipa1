@@ -18,6 +18,7 @@ class Group extends Entity
         'user_id' => true,
         'location_id' => true,
         'name' => true,
+        'url' => true,
         'due_date' => true,
         'type' => true,
         'started' => true,

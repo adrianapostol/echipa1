@@ -7,6 +7,9 @@
 <div class="groups view large-10 medium-9 columns">
     <h2><?= h($group->name) ?></h2>
     <h3> <?= $group['type'] == 'catering' ? 'Order List' : 'Participants' ?> </h3>
+    <?php if ($group['url']): ?>
+        <p><a href="<?= $group['url'] ?>"><?= $group['url'] ?></a> </p>
+    <?php endif; ?>
     <p><?= __('Initiated by ') ?> <b> <?= $users[$group['user_id']]['username'] ?> </b> </p>
     <div class="row">
         <div class="panel-body">

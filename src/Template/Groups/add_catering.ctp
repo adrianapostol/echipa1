@@ -10,6 +10,7 @@
         <legend><?= __('Add Group') ?></legend>
         <?php
             echo $this->Form->input('name');
+            echo $this->Form->input('url');
             echo $this->Form->input('due_date');
         ?>
     </fieldset>

@@ -48,6 +48,7 @@ CREATE TABLE IF NOT EXISTS `groups` (
   `user_id` int(11) NOT NULL,
   `location_id` int(11),
   `name` varchar(255) NOT NULL,
+  `url` varchar(255),
   `created` datetime DEFAULT NULL,
   `modified` datetime DEFAULT NULL,
   `due_date` datetime,

@@ -62,6 +62,10 @@ class GroupsTable extends Table
             ->notEmpty('name');
             
         $validator
+            ->requirePresence('url', 'create')
+            ->notEmpty('url');
+            
+        $validator
             ->add('due_date', 'valid', ['rule' => 'datetime'])
             ->allowEmpty('due_date');
             
